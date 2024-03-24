@@ -17,8 +17,18 @@ const routes: Array<RouteRecordRaw> = [
       component: () =>  import('@/views/ToysCategory.vue')
     },
   ]
-}
-]
+},  
+  {
+    path: '/product/:id',
+    name: 'product',
+    component: () =>  import('@/views/ProductPage.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'notFound',
+    component: () =>  import('@/views/NotFound.vue')
+  },
+  ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
