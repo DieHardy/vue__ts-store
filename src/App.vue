@@ -1,10 +1,8 @@
 <template>
 <div>
-  <MenuPage/>
-  <h1>Project: {{ projectName }} </h1>
-  <ul>
-    <li>{{ product }}</li>
-  </ul>
+  <HeaderBar />
+  <router-view />
+  <FooterBar />
 </div>
 </template>
 
@@ -12,20 +10,9 @@
 
 </style>
 <script setup lang="ts">
-import MenuPage from "./components/MenuPage.vue"
-
-import {ref} from 'vue'
-const projectName = ref<null | string>(null)
-projectName.value = 'Wurkio'
-
-import type {IProduct} from './types/product'
-
-const product = ref<IProduct>({
-    id: 1,
-    title: 'I`m product'
-})
+import HeaderBar from "./components/HeaderBar.vue"
+import FooterBar from "./components/FooterBar.vue"
 
 
-
-
-</script>
+import { RouterView } from "vue-router";
+ </script>

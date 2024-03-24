@@ -1,12 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '',
+    path: '/menu',
     name: 'menupage',
-    component: () => import('../components/MenuPage.vue')
-  }
+    component: () =>  import('@/views/MenuPage.vue')
+  },
+  {
+  path: '/main',
+  name: 'main',
+  component: () =>  import('@/views/MainCatalogue.vue'),
+  children: [
+    {
+      path: 'toys',
+      name: 'toyscategory',
+      component: () =>  import('@/views/ToysCategory.vue')
+    },
+  ]
+}
 ]
 
 const router = createRouter({
